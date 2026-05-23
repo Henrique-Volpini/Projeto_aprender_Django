@@ -1,0 +1,9 @@
+python -m venv .venv
+
+django-admin startproject nomedoprojeto --------------------- (para criar um projeto inicial)
+
+cd nomepasta ----------------- (para navegar para a pasta)
+
+python manage.py runserver --------------  (para iniciar o server e a pagina web)
+
+python manage.py startapp nomedoapp ----------------- (para criar tipo um app dentro do djanto todo)
