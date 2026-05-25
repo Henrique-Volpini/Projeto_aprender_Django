@@ -1,17 +1,27 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Div Centralizada</title>
-  <link rel="stylesheet" href="{% static 'conversationapp/css/style.css' %}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'conversationapp/css/style.css' %}">
 </head>
 <body>
   <div class="card">
-    <!-- Seu conteudo aqui -->
+    
+    {% if erro %}
+      <p style="color: red;">{{ erro }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'home' %}">
+      {% csrf_token %}
+      <input name="username" type="text" placeholder="Usuario" required>
+      <input name="password" type="password" placeholder="Senha" required>
+      <button type="submit">Enviar</button>
+    </form>
   </div>
+
   <script src="{% static 'conversationapp/js/script.js' %}"></script>
 </body>
 </html>
