@@ -1,0 +1,39 @@
+------------------------------------------
+User:
+
+id
+password
+last_login
+is_superuser
+username
+first_name
+last_name
+email
+is_staff
+is_active
+date_joined
+
+------------------------------------------
+
+Grupo:
+
+id
+nome
+
+------------------------------------------
+
+User_Grupo:
+
+id
+user_id (Fk)
+grupo_id (Fk)
+
+------------------------------------------
+
+Mensagens:
+
+id
+user_id (Fk)
+grupo_id (Fk)
+conteudo
+created_at
