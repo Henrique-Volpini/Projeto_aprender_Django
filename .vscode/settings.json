@@ -1,3 +1,10 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "workbench.editorAssociations": {
+        "*.png": "imagePreview.previewEditor",
+        "*.jpg": "imagePreview.previewEditor",
+        "*.jpeg": "imagePreview.previewEditor",
+        "*.webp": "imagePreview.previewEditor",
+        "*.gif": "imagePreview.previewEditor"
+    }
 }

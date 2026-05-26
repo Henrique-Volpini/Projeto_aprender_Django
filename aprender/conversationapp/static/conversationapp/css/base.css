@@ -17,7 +17,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* CARD CENTRALIZADO */
 .card {
   position: absolute;
   top: 50%;
@@ -47,7 +46,6 @@ body {
   justify-content: center;
 }
 
-/* CAMPOS */
 .card input {
   width: 100%;
   height: 54px;
@@ -65,7 +63,6 @@ body {
   border-color: #222222;
 }
 
-/* BOTÃO */
 .card button {
   width: 100%;
   height: 54px;

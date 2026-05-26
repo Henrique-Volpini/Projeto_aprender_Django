@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="pt-BR">
@@ -6,9 +6,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel</title>
+  <link rel="stylesheet" href="{% static 'conversationapp/css/conversas.css' %}">
 </head>
 <body>
-  <h1>Bem-vindo, {{ request.user.username }}!</h1>
-  <p>Voce logou com sucesso.</p>
+  <div class="barra-esquerda">
+    {% for grupo in user.grupos_conversa.all %}
+      <button
+        type="button"
+        class="botao-grupo"
+        data-grupo-id="{{ grupo.id }}"
+        data-grupo-nome="{{ grupo.nome }}"
+      >
+        {{ grupo.nome }}
+      </button>
+    {% empty %}
+      <p class="sem-grupos">Voce ainda nao participa de nenhum grupo.</p>
+    {% endfor %}
+  </div>
+
+  <main class="conteudo">
+    <p id="status-clique"></p>
+  </main>
+
+  <script src="{% static 'conversationapp/js/conversas.js' %}"></script>
 </body>
 </html>
