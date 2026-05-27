@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'conversationapp'
 ]
 
@@ -68,6 +70,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'aprender.wsgi.application'
+ASGI_APPLICATION = 'aprender.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
+}
 
 
 # Database

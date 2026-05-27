@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
   const campoUsuario = document.querySelector('input[name="username"]');
   const campoSenha = document.querySelector('input[name="password"]');
   const btnEnviar = document.querySelector('form button[type="submit"]');

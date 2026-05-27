@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="barra-esquerda">
-    {% for grupo in user.grupos_conversa.all %}
+    {% for grupo in grupos %}
       <button
         type="button"
         class="botao-grupo"
@@ -24,9 +24,28 @@
     {% endfor %}
   </div>
 
-  <main class="conteudo">
-    <p id="status-clique"></p>
-  </main>
+  <section class="painel-conversa" data-user-id="{{ request.user.id }}">
+    <header class="cabecalho-conversa">
+      <h2 id="titulo-grupo">Selecione um grupo</h2>
+      <p id="status-conexao" class="status-conexao">Sem conexao ativa</p>
+    </header>
+
+    <main id="lista-mensagens" class="lista-mensagens">
+      <p class="mensagem-sistema">Escolha um grupo para ver as mensagens.</p>
+    </main>
+
+    <form id="form-mensagem" class="composer">
+      {% csrf_token %}
+      <input
+        id="input-mensagem"
+        type="text"
+        placeholder="Selecione um grupo primeiro"
+        autocomplete="off"
+        disabled
+      >
+      <button id="btn-enviar" type="submit" disabled>Enviar</button>
+    </form>
+  </section>
 
   <script src="{% static 'conversationapp/js/conversas.js' %}"></script>
 </body>
