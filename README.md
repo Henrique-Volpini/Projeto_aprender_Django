@@ -22,12 +22,14 @@ Projeto de estudo com Django para praticar:
 4. Rode as migracoes
 5. Inicie o servidor
 
-### Windows (PowerShell)
+### Windows (PowerShell)Volpini/Projeto_aprender_Django.gi
 
 ```powershell
+cd Projeto_aprender_Django
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+Copy-Item .env.example .env
 python aprender\manage.py migrate
 python aprender\manage.py runserver
 ```
@@ -46,9 +48,9 @@ Abra no navegador:
 # criar usuario admin
 python aprender\manage.py createsuperuser
 
--------------------------------------------------
+```
 
-# Obs
+## Obs
 
 - `aprender/db.sqlite3` fica versionado de proposito para facilitar testes entre maquinas.
 - A pasta `Notas Pessoais/` tambem fica versionada de proposito.

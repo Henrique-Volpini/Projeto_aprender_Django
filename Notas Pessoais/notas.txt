@@ -61,3 +61,14 @@ git commit -m "mensagem do commit"
 git push origin feature/minha-tarefa
 
 --------------------------------------------------------------------------------------
+
+Para rodar isso
+
+git clone https://github.com/Henrique-Volpini/Projeto_aprender_Django.git
+cd Projeto_aprender_Django
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+Copy-Item .env.example .env
+python aprender\manage.py migrate
+python aprender\manage.py runserver
