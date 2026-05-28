@@ -11,16 +11,24 @@ body {
   background: #f5f7fb;
 }
 
+.painel-grupos {
+  width: 290px;
+  flex: 0 0 auto;
+  border-right: 1px solid #e6eaf2;
+  background: #f8fbff;
+  overflow: hidden;
+  transition: width 0.32s ease, border-color 0.32s ease;
+}
+
 .barra-esquerda {
   width: 290px;
   padding: 14px;
-  border-right: 1px solid #e6eaf2;
-  background: #f8fbff;
   display: flex;
   flex-direction: column;
   gap: 8px;
   height: 100vh;
   overflow-y: auto;
+  transition: transform 0.32s ease;
 }
 
 .botao-grupo {
@@ -56,8 +64,50 @@ body {
 
 .cabecalho-conversa {
   border-bottom: 1px solid #e6eaf2;
-  padding: 16px 20px;
+  padding: 0;
   background: #fff;
+  position: relative;
+}
+
+.cabecalho-textos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 74px;
+  padding: 16px 20px 16px 32px;
+  min-width: 0;
+}
+
+.botao-toggle-grupos {
+  width: 16px;
+  border: 0;
+  border-right: 1px solid #cfd8eb;
+  background: #f2f5fb;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-toggle-grupos::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-left: 2px solid #60708d;
+  border-bottom: 2px solid #60708d;
+  transform: translate(-35%, -50%) rotate(45deg);
+  transition: transform 0.32s ease;
+}
+
+.botao-toggle-grupos:hover {
+  background: #e8eef9;
+  border-color: #b9c8e6;
 }
 
 .cabecalho-conversa h2 {
@@ -152,5 +202,18 @@ body {
 .composer input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+body.grupos-ocultos .painel-grupos {
+  width: 0;
+  border-right-color: transparent;
+}
+
+body.grupos-ocultos .barra-esquerda {
+  transform: translateX(-100%);
+}
+
+body.grupos-ocultos .botao-toggle-grupos::before {
+  transform: translate(-65%, -50%) rotate(-135deg);
 }
 

@@ -3,6 +3,7 @@
   const userId = Number(painelConversa?.dataset.userId || 0);
 
   const botoesGrupo = [...document.querySelectorAll(".botao-grupo")];
+  const btnToggleGrupos = document.getElementById("btn-toggle-grupos");
   const tituloGrupo = document.getElementById("titulo-grupo");
   const statusConexao = document.getElementById("status-conexao");
   const listaMensagens = document.getElementById("lista-mensagens");
@@ -14,6 +15,19 @@
 
   let socket = null;
   let grupoAtualId = null;
+
+  function atualizarEstadoBotaoGrupos() {
+    if (!btnToggleGrupos) {
+      return;
+    }
+
+    const gruposOcultos = document.body.classList.contains("grupos-ocultos");
+    btnToggleGrupos.setAttribute("aria-expanded", (!gruposOcultos).toString());
+    btnToggleGrupos.setAttribute(
+      "aria-label",
+      gruposOcultos ? "Mostrar grupos" : "Ocultar grupos"
+    );
+  }
 
   function atualizarStatus(texto) {
     if (statusConexao) {
@@ -241,6 +255,14 @@
         atualizarStatus("Erro ao enviar mensagem");
         console.error("Erro ao enviar mensagem:", erro);
       }
+    });
+  }
+
+  if (btnToggleGrupos) {
+    atualizarEstadoBotaoGrupos();
+    btnToggleGrupos.addEventListener("click", () => {
+      document.body.classList.toggle("grupos-ocultos");
+      atualizarEstadoBotaoGrupos();
     });
   }
 

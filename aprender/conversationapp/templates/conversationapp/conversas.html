@@ -9,25 +9,36 @@
   <link rel="stylesheet" href="{% static 'conversationapp/css/conversas.css' %}">
 </head>
 <body>
-  <div class="barra-esquerda">
-    {% for grupo in grupos %}
-      <button
-        type="button"
-        class="botao-grupo"
-        data-grupo-id="{{ grupo.id }}"
-        data-grupo-nome="{{ grupo.nome }}"
-      >
-        {{ grupo.nome }}
-      </button>
-    {% empty %}
-      <p class="sem-grupos">Voce ainda nao participa de nenhum grupo.</p>
-    {% endfor %}
-  </div>
+  <aside class="painel-grupos">
+    <div class="barra-esquerda">
+      {% for grupo in grupos %}
+        <button
+          type="button"
+          class="botao-grupo"
+          data-grupo-id="{{ grupo.id }}"
+          data-grupo-nome="{{ grupo.nome }}"
+        >
+          {{ grupo.nome }}
+        </button>
+      {% empty %}
+        <p class="sem-grupos">Voce ainda nao participa de nenhum grupo.</p>
+      {% endfor %}
+    </div>
+  </aside>
 
   <section class="painel-conversa" data-user-id="{{ request.user.id }}">
     <header class="cabecalho-conversa">
-      <h2 id="titulo-grupo">Selecione um grupo</h2>
-      <p id="status-conexao" class="status-conexao">Sem conexao ativa</p>
+      <button
+        id="btn-toggle-grupos"
+        class="botao-toggle-grupos"
+        type="button"
+        aria-label="Ocultar grupos"
+        aria-expanded="true"
+      ></button>
+      <div class="cabecalho-textos">
+        <h2 id="titulo-grupo">Selecione um grupo</h2>
+        <p id="status-conexao" class="status-conexao">Sem conexao ativa</p>
+      </div>
     </header>
 
     <main id="lista-mensagens" class="lista-mensagens">

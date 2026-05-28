@@ -22,7 +22,7 @@ Projeto de estudo com Django para praticar:
 4. Rode as migracoes
 5. Inicie o servidor
 
-### Windows (PowerShell)Volpini/Projeto_aprender_Django.gi
+### Windows (PowerShell)
 
 ```powershell
 cd Projeto_aprender_Django
