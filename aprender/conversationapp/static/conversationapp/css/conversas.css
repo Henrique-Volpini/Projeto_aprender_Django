@@ -90,6 +90,7 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
+  z-index: 40;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -344,4 +345,3 @@ body.grupos-ocultos .barra-esquerda {
 body.grupos-ocultos .botao-toggle-grupos::before {
   transform: translate(-65%, -50%) rotate(-135deg);
 }
-
