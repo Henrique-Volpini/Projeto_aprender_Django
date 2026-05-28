@@ -7,6 +7,11 @@
   const tituloGrupo = document.getElementById("titulo-grupo");
   const statusConexao = document.getElementById("status-conexao");
   const listaMensagens = document.getElementById("lista-mensagens");
+  const btnMenuTema = document.getElementById("btn-menu-tema");
+  const menuPrincipal = document.getElementById("menu-principal");
+  const btnOpcaoTema = document.getElementById("btn-opcao-tema");
+  const submenuTema = document.getElementById("submenu-tema");
+  const botoesTema = [...document.querySelectorAll(".opcao-tema")];
 
   const formMensagem = document.getElementById("form-mensagem");
   const inputMensagem = document.getElementById("input-mensagem");
@@ -15,6 +20,71 @@
 
   let socket = null;
   let grupoAtualId = null;
+  const temasPermitidos = new Set(["dark", "pink"]);
+  const chaveTema = "conversationapp.theme";
+
+  function aplicarTema(tema, salvar = true) {
+    const temaNormalizado = String(tema || "").trim().toLowerCase();
+
+    if (temasPermitidos.has(temaNormalizado)) {
+      document.documentElement.setAttribute("data-theme", temaNormalizado);
+      if (salvar) {
+        localStorage.setItem(chaveTema, temaNormalizado);
+      }
+      return;
+    }
+
+    document.documentElement.removeAttribute("data-theme");
+    if (salvar) {
+      localStorage.removeItem(chaveTema);
+    }
+  }
+
+  function atualizarOpcaoTemaAtiva() {
+    const temaAtual = (document.documentElement.getAttribute("data-theme") || "").toLowerCase();
+    botoesTema.forEach((botao) => {
+      const temaBotao = (botao.dataset.theme || "").toLowerCase();
+      botao.classList.toggle("ativa", temaBotao === temaAtual);
+    });
+  }
+
+  function fecharMenusTema() {
+    if (!btnMenuTema) {
+      return;
+    }
+
+    if (menuPrincipal) {
+      menuPrincipal.hidden = true;
+    }
+    if (submenuTema) {
+      submenuTema.hidden = true;
+    }
+    if (btnOpcaoTema) {
+      btnOpcaoTema.setAttribute("aria-expanded", "false");
+    }
+    btnMenuTema.setAttribute("aria-expanded", "false");
+    btnMenuTema.classList.remove("aberto");
+  }
+
+  function abrirMenuPrincipalTema() {
+    if (!menuPrincipal || !btnMenuTema) {
+      return;
+    }
+
+    menuPrincipal.hidden = false;
+    btnMenuTema.setAttribute("aria-expanded", "true");
+    btnMenuTema.classList.add("aberto");
+  }
+
+  function alternarSubmenuTema() {
+    if (!submenuTema || !btnOpcaoTema) {
+      return;
+    }
+
+    const vaiAbrir = submenuTema.hidden;
+    submenuTema.hidden = !submenuTema.hidden;
+    btnOpcaoTema.setAttribute("aria-expanded", vaiAbrir ? "true" : "false");
+  }
 
   function atualizarEstadoBotaoGrupos() {
     if (!btnToggleGrupos) {
@@ -263,6 +333,56 @@
     btnToggleGrupos.addEventListener("click", () => {
       document.body.classList.toggle("grupos-ocultos");
       atualizarEstadoBotaoGrupos();
+    });
+  }
+
+  if (btnMenuTema && menuPrincipal) {
+    const temaSalvo = (localStorage.getItem(chaveTema) || "").toLowerCase();
+    aplicarTema(temaSalvo, false);
+    atualizarOpcaoTemaAtiva();
+
+    btnMenuTema.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (menuPrincipal.hidden) {
+        abrirMenuPrincipalTema();
+      } else {
+        fecharMenusTema();
+      }
+    });
+
+    menuPrincipal.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+
+    if (submenuTema) {
+      submenuTema.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+    }
+
+    if (btnOpcaoTema) {
+      btnOpcaoTema.addEventListener("click", (event) => {
+        event.stopPropagation();
+        alternarSubmenuTema();
+      });
+    }
+
+    botoesTema.forEach((botaoTema) => {
+      botaoTema.addEventListener("click", () => {
+        aplicarTema(botaoTema.dataset.theme || "");
+        atualizarOpcaoTemaAtiva();
+        fecharMenusTema();
+      });
+    });
+
+    document.addEventListener("click", () => {
+      fecharMenusTema();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        fecharMenusTema();
+      }
     });
   }
 

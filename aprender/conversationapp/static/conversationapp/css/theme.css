@@ -1,0 +1,113 @@
+:root {
+  /* Base surfaces */
+  --color-bg-login: #f2f2f2;
+  --color-bg-app: #f5f7fb;
+  --color-bg-panel: #f8fbff;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-subtle: #f2f5fb;
+  --color-bg-surface-hover: #e8eef9;
+
+  /* Text */
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #1d2a44;
+  --color-text-muted: #8b93a6;
+  --color-text-subtle: #666666;
+  --color-text-on-accent: #ffffff;
+
+  /* Borders */
+  --color-border-default: #e6eaf2;
+  --color-border-soft: #cfd8eb;
+  --color-border-soft-hover: #b9c8e6;
+  --color-border-input: #cccccc;
+  --color-border-strong: #222222;
+  --color-input-border: #ced5e4;
+  --color-input-focus: #8ca6e6;
+  --color-toggle-arrow: #60708d;
+
+  /* Action / accents */
+  --color-accent: #2f6fed;
+  --color-group-border: #bfd4ff;
+  --color-group-bg: #e8f0ff;
+  --color-group-bg-hover: #d7e6ff;
+  --color-message-own: #e7f0ff;
+  --color-button-login-bg: #222222;
+  --color-button-login-hover: #000000;
+
+  /* Feedback */
+  --color-danger: #d7263d;
+
+  /* Effects */
+  --shadow-card: 0 8px 20px 3px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] {
+  --color-bg-login: #0f172a;
+  --color-bg-app: #0b1220;
+  --color-bg-panel: #101a2e;
+  --color-bg-surface: #131f36;
+  --color-bg-surface-subtle: #182741;
+  --color-bg-surface-hover: #223454;
+
+  --color-text-primary: #e5ecf8;
+  --color-text-secondary: #d8e3ff;
+  --color-text-muted: #98a7c2;
+  --color-text-subtle: #b2bfda;
+  --color-text-on-accent: #ffffff;
+
+  --color-border-default: #243651;
+  --color-border-soft: #314867;
+  --color-border-soft-hover: #3b587f;
+  --color-border-input: #3b4e6c;
+  --color-border-strong: #9cb1d2;
+  --color-input-border: #3a4f72;
+  --color-input-focus: #77a0ff;
+  --color-toggle-arrow: #9eb2d6;
+
+  --color-accent: #4f86ff;
+  --color-group-border: #4f6ea8;
+  --color-group-bg: #233963;
+  --color-group-bg-hover: #2d4a80;
+  --color-message-own: #1f3d70;
+  --color-button-login-bg: #30496f;
+  --color-button-login-hover: #3a5a8d;
+
+  --color-danger: #ff7b89;
+
+  --shadow-card: 0 8px 24px 4px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme="pink"] {
+  --color-bg-login: #fff4fa;
+  --color-bg-app: #ffeef7;
+  --color-bg-panel: #ffe3f2;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-subtle: #ffd8eb;
+  --color-bg-surface-hover: #ffcbe4;
+
+  --color-text-primary: #4a1532;
+  --color-text-secondary: #6b2347;
+  --color-text-muted: #a14f77;
+  --color-text-subtle: #91466b;
+  --color-text-on-accent: #ffffff;
+
+  --color-border-default: #f2b4d3;
+  --color-border-soft: #eaa2c7;
+  --color-border-soft-hover: #e48dbb;
+  --color-border-input: #e9a5c7;
+  --color-border-strong: #bb4f82;
+  --color-input-border: #e69fca;
+  --color-input-focus: #d95f9f;
+  --color-toggle-arrow: #b55286;
+
+  --color-accent: #e0569a;
+  --color-group-border: #ee9dc7;
+  --color-group-bg: #ffd3e8;
+  --color-group-bg-hover: #ffc2df;
+  --color-message-own: #ffcae3;
+  --color-button-login-bg: #d94d93;
+  --color-button-login-hover: #c43f82;
+
+  --color-danger: #d7266d;
+
+  --shadow-card: 0 8px 20px 3px rgba(181, 58, 124, 0.24);
+}

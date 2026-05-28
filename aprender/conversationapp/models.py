@@ -3,10 +3,18 @@ from django.db import models
 
 
 class Perfil(models.Model):
+    THEME_DARK = "dark"
+    THEME_PINK = "pink"
+
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="perfil",
+    )
+    theme = models.CharField(
+        max_length=10,
+        null=True,
+        blank=True,
     )
 
     class Meta:

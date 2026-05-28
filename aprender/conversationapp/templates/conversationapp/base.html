@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link rel="stylesheet" href="{% static 'conversationapp/css/theme.css' %}">
   <link rel="stylesheet" href="{% static 'conversationapp/css/base.css' %}">
 </head>
 <body>
   <div class="card">
     
     {% if erro %}
-      <p style="color: red;">{{ erro }}</p>
+      <p class="erro-login">{{ erro }}</p>
     {% endif %}
 
     <form method="post" action="{% url 'home' %}">

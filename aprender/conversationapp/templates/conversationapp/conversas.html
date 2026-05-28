@@ -6,7 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel</title>
-  <link rel="stylesheet" href="{% static 'conversationapp/css/conversas.css' %}">
+  <link rel="stylesheet" href="{% static 'conversationapp/css/theme.css' %}?v=6">
+  <link rel="stylesheet" href="{% static 'conversationapp/css/conversas.css' %}?v=6">
 </head>
 <body>
   <aside class="painel-grupos">
@@ -38,6 +39,38 @@
       <div class="cabecalho-textos">
         <h2 id="titulo-grupo">Selecione um grupo</h2>
         <p id="status-conexao" class="status-conexao">Sem conexao ativa</p>
+        <div class="menu-cabecalho">
+          <button
+            id="btn-menu-tema"
+            class="botao-menu-cabecalho"
+            type="button"
+            aria-label="Abrir menu"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span class="icone-hamburguer" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+          <div id="menu-principal" class="menu-painel" hidden>
+            <button
+              id="btn-opcao-tema"
+              type="button"
+              class="menu-opcao"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Tema
+            </button>
+            <div id="submenu-tema" class="submenu-painel" hidden>
+              <button type="button" class="opcao-tema" data-theme="">Padrao</button>
+              <button type="button" class="opcao-tema" data-theme="dark">Dark</button>
+              <button type="button" class="opcao-tema" data-theme="pink">Pink</button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -58,6 +91,6 @@
     </form>
   </section>
 
-  <script src="{% static 'conversationapp/js/conversas.js' %}"></script>
+  <script src="{% static 'conversationapp/js/conversas.js' %}?v=6"></script>
 </body>
 </html>
